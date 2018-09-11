@@ -31,11 +31,12 @@ object Client {
                                   body: Array[Byte]) {
         var message = new String(body, "UTF-8")
         println(" [x] Received '" + message + "'")
+        println("\n------------------------------------------------------------\n")
       }
     }
     channel.basicConsume(QUEUE_NAME2, true, consumer)
 
-    while(true) {
+    while (true) {
       var userCommand = reader.readLine().toInt
       if (userCommand == 1) {
         var message: String = "AllBooks"
@@ -67,7 +68,8 @@ object Client {
         println("try again")
       }
     }
-    def MessageSender(message :String): Unit ={
+
+    def MessageSender(message: String): Unit = {
       channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"))
       println(" [x] Sent '" + message + "'")
       //channel.close()
