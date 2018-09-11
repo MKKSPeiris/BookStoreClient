@@ -2,8 +2,6 @@ import com.rabbitmq.client._
 import com.rabbitmq.client.ConnectionFactory
 import java.io._
 
-import jdk.nashorn.internal.ir.WhileNode
-
 object Client {
 
   def main(argv: Array[String]) {
@@ -75,8 +73,6 @@ object Client {
       //channel.close()
       //connection.close()
     }
-
-
   }
 
 }
