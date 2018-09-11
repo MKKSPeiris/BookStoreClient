@@ -6,10 +6,11 @@ object Client {
 
   def main(argv: Array[String]) {
 
-    println("Press 1 to get allbooks names")
-    println("Press 2 to get Book Details ")
-    println("Press 3 to Add a New book")
-    println("Press 4 to Remove a Book")
+    println("Press 1 to get allbooks names" +
+      "\nPress 2 to get Book Details" +
+      "\nPress 3 to Add a New book" +
+      "\nPress 4 to Remove a Book")
+
     var reader = new BufferedReader(new InputStreamReader(System.in))
 
     val factory = new ConnectionFactory()
