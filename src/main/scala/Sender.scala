@@ -1,13 +1,13 @@
 import java.io._
 
-import com.rabbitmq.client.ConnectionFactory
+import com.rabbitmq.client.{Channel, Connection, ConnectionFactory}
 
 class Sender {
   val reader = new BufferedReader(new InputStreamReader(System.in))
   val factory = new ConnectionFactory()
   factory.setHost("localhost")
-  val connection = factory.newConnection()
-  val channel = connection.createChannel()
+  val connection: Connection = factory.newConnection()
+  val channel: Channel = connection.createChannel()
   val QUEUE_NAME: String = "Client2Server"
   channel.queueDeclare(QUEUE_NAME, false, false, false, null)
 
