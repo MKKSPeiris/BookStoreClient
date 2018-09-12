@@ -3,7 +3,7 @@ object Client {
   def main(argv: Array[String]) {
 
     new Reciever()
-    new Controllers()
+    new SendHandler()
   }
 
 }

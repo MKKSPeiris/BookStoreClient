@@ -1,6 +1,6 @@
 import java.io.{BufferedReader, InputStreamReader}
 
-class Controllers {
+class SendHandler {
 
   println("Press 1 to get allbooks names" +
     "\nPress 2 to get Book Details" +
