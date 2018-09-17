@@ -1,8 +1,9 @@
 object Client {
 
   def main(argv: Array[String]) {
-    new Reciever()
-    new SendHandler()
+    val connectionClass = new ConnectionClass()
+    new Reciever(connectionClass)
+    new SendHandler(connectionClass)
   }
 
 }

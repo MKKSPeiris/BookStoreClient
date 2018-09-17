@@ -1,6 +1,6 @@
 import java.io.{BufferedReader, InputStreamReader}
 
-class SendHandler {
+class SendHandler(connectionClass: ConnectionClass) {
 
   println("Press 1 to get allbooks names" +
     "\nPress 2 to get Book Details" +
@@ -8,7 +8,7 @@ class SendHandler {
     "\nPress 4 to Remove a Book")
 
   val reader = new BufferedReader(new InputStreamReader(System.in))
-  val sender = new Sender()
+  val sender = new Sender(connectionClass)
   while (true) {
     val userCommand = reader.readLine().toInt
     if (userCommand == 1) {

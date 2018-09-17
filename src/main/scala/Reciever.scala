@@ -1,14 +1,10 @@
 import com.rabbitmq.client._
 
-class Reciever {
+class Reciever(connectionClass: ConnectionClass) {
 
-  val factory = new ConnectionFactory()
-  factory.setHost("localhost")
-  val connection: Connection = factory.newConnection()
-  val channel: Channel = connection.createChannel()
   val QUEUE_NAME: String = "Server2Client"
-  channel.queueDeclare(QUEUE_NAME, false, false, false, null)
-  val consumer: DefaultConsumer = new DefaultConsumer(channel) {
+  connectionClass.channel.queueDeclare(QUEUE_NAME, false, false, false, null)
+  val consumer: DefaultConsumer = new DefaultConsumer(connectionClass.channel) {
 
     override def handleDelivery(consumerTag: String,
                                 envelope: Envelope,
@@ -18,5 +14,5 @@ class Reciever {
       println(" [x] Received '" + message + "'" + "\n------------------------------------------------------------\n")
     }
   }
-  channel.basicConsume(QUEUE_NAME, true, consumer)
+  connectionClass.channel.basicConsume(QUEUE_NAME, true, consumer)
 }
